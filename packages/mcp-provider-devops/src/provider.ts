@@ -8,6 +8,8 @@ import { CheckCommitStatus } from "./tools/checkCommitStatus.js";
 import { CreatePullRequest } from "./tools/createPullRequest.js";
 import { SfDevopsCheckoutWorkItem } from "./tools/sfDevopsCheckoutWorkItem.js";
 import { SfDevopsCommitWorkItem } from "./tools/sfDevopsCommitWorkItem.js";
+import { SfDevopsImportJiraTasks } from "./tools/sfDevopsImportJiraTasks.js";
+import { SfDevopsGetJiraTasks } from "./tools/sfDevopsGetJiraTasks.js";
 
 /**
  * DevOps MCPProvider for DevOps tools and operations
@@ -31,6 +33,9 @@ export class DevOpsMcpProvider extends McpProvider {
 
       new CheckCommitStatus(telemetryService),
       new CreatePullRequest(telemetryService),
+      
+      new SfDevopsImportJiraTasks(telemetryService),
+      new SfDevopsGetJiraTasks(telemetryService),
     ]);
   }
 
